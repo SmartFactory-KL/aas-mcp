@@ -1,0 +1,83 @@
+[build-system]
+requires = ["hatchling >= 1.26", "hatch-vcs>=0.3"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aas-mcp"
+dynamic = ["version"]
+authors = [{ name = "Peter Stein", email = "peter.stein@dfki.de" }]
+description = "A Python Model Context Protocol (MCP) Server for Eclipse BaSyx to manage Asset Administration Shells (AAS)"
+license = { file = "LICENSE" }
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.10"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+keywords = []
+dependencies = [
+    "fastMCP",
+    "shellsmith>=0.4.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "mypy",
+    "pytest",
+#    "pytest-asyncio",
+#    "pytest-cov",
+#    "pytest-dotenv",
+    "ruff",
+#    "types-pyyaml",
+#    "types-requests"
+]
+
+[project.scripts]
+aas-mcp  = "aas_mcp.server:cli_main"
+
+[project.urls]
+Homepage = "https://github.com/SmartFactory-KL/aas-mcp"
+Issues = "https://github.com/SmartFactory-KL/aas-mcp/issues"
+Documentation = "https://github.com/SmartFactory-KL/aas-mcp"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+include = ["src", "README.md", "LICENSE"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "ANN",  # flake8-annotations
+    "B",    # flake8-bugbear
+    "C4",   # flake8-comprehensions
+    "D",    # pydocstyle
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "N",    # pep8-naming
+    "PL",   # pylint
+    "SIM",  # flake8-simplify
+    "UP",   # pyupgrade
+    "W",    # pycodestyle warnings
+]
+
+ignore = [
+    "ANN401",  # Allow Any types
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["D104", "F401"]
+"tests/**/test_*.py" = ["ANN", "PL"]
+"tests/**/*.py" = ["D"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
