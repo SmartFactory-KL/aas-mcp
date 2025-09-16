@@ -83,21 +83,46 @@ The MCP server provides 25+ tools for AAS management:
 
 ## 🔧 Configuration
 
+### MCP Client Configuration
+
+To use this server with MCP clients like [Claude Desktop](https://claude.ai/download), add it to your client's configuration:
+
+```json
+{
+  "mcpServers": {
+    "aas-mcp": {
+      "command": "aas-mcp",
+      "env": {
+        "SHELLSMITH_BASYX_ENV_HOST": "http://localhost:8081"
+      }
+    }
+  }
+}
+```
+
+> ℹ️ Change the value of `SHELLSMITH_BASYX_ENV_HOST` to match your BaSyx Environment host URL
+
+The configuration format is similar for other MCP clients like LM Studio.
+
+### BaSyx Environment Configuration
+
 The MCP server connects to an Eclipse BaSyx environment. The default host is:
 
 ```
 http://localhost:8081
 ```
 
-You can configure the host using environment variables or a `.env` file:
+You can override it in several ways:
 
-```bash
-# Environment variable
-export SHELLSMITH_BASYX_ENV_HOST=https://your-host:1234
+- Set the environment variable:  
+  ```bash
+  export SHELLSMITH_BASYX_ENV_HOST=https://your-host:1234
+  ```
 
-# Or in .env file
-SHELLSMITH_BASYX_ENV_HOST=https://your-host:1234
-```
+- Create a `.env` file in your working directory with:  
+  ```dotenv
+  SHELLSMITH_BASYX_ENV_HOST=https://your-host:1234
+  ```
 
 Each tool also accepts a `host` parameter to override the default configuration dynamically.
 
