@@ -1,17 +1,11 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/SmartFactory-KL/aas-mcp/main/docs/images/logo-purple-500.png" alt="aas-mcp">
+    <img src="https://raw.githubusercontent.com/SmartFactory-KL/aas-mcp/main/docs/images/logo-aas-mcp-purple-500.png" alt="aas-mcp">
 </div>
 
 <div align="center">
-  <a href="https://github.com/SmartFactory-KL/aas-mcp/actions/workflows/test.yaml"><img src="https://github.com/SmartFactory-KL/aas-mcp/actions/workflows/test.yaml/badge.svg" alt="Test"></a>
-  <a href="https://codecov.io/gh/SmartFactory-KL/aas-mcp"><img src="https://codecov.io/gh/SmartFactory-KL/aas-mcp/branch/main/graph/badge.svg" alt="codecov"></a>
   <a href="https://pypi.org/project/aas-mcp"><img src="https://img.shields.io/pypi/v/aas-mcp?color=%2334D058" alt="PyPI - Version"></a>
   <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
 </div>
-
-<p align="center">
-    <b>Documentation</b>: <a href="https://aas-mcp.pages.dev/" target="_blank">https://aas-mcp.pages.dev</a>
-</p>
 
 **aas-mcp** is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server that provides AI assistants with tools to interact with [Asset Administration Shells (AAS)](https://industrialdigitaltwin.org/en/content-hub/aasspecifications) via the [Eclipse BaSyx](https://www.eclipse.org/basyx/) REST API.
 
